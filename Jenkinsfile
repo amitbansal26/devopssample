@@ -17,5 +17,12 @@ library identifier: "pipeline-library@master", retriever: modernSCM(
               binaryBuild(buildConfigName: appName, buildFromPath: ".")
              }
       }
+
+      stage('Deploy top dev'){
+       steps {
+       tagImage(sourceImageName: appName, sourceImagePath: 'docker.io/amitb26j',
+       toImagePath: 'docker.io/amitb26j', toImageName: 'test' , toImageTag:'prod')
+        }
+      }
    }
  }
