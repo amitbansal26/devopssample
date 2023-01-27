@@ -12,11 +12,10 @@ library identifier: "pipeline-library@master", retriever: modernSCM(
                }
            }
      stage('Docker build'){
-   openshift.withProject("amitbansal26-dev"){
+
         steps {
               binaryBuild(buildConfigName: appName, buildFromPath: ".")
              }
-         }
       }
    }
  }
